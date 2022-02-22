@@ -18,6 +18,7 @@ const config = {
     scale: {
         parent: 'game',
         autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.FIT,
         width: 1000,
         height: 340
     },
