@@ -173,16 +173,16 @@ class PlayScene extends Phaser.Scene {
     }
 
     handleInputs() {
-        // this.restart.on('pointerdown', () => {
-        //     this.dino.setVelocityY(0);
-        //     this.dino.body.height = 92;
-        //     this.dino.body.offset.y = 0;
-        //     this.physics.resume();
-        //     this.obsticles.clear(true, true);
-        //     this.isGameRunning = true;
-        //     this.gameOverScreen.setAlpha(0);
-        //     this.anims.resumeAll();
-        // })
+        this.restart.on('pointerdown', () => {
+            this.dino.setVelocityY(0);
+            this.dino.body.height = 92;
+            this.dino.body.offset.y = 0;
+            this.physics.resume();
+            this.obsticles.clear(true, true);
+            this.isGameRunning = true;
+            this.gameOverScreen.setAlpha(0);
+            this.anims.resumeAll();
+        })
 
         this.input.on('pointerdown', () => {
             if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
@@ -261,7 +261,7 @@ class PlayScene extends Phaser.Scene {
 
         this.environment.getChildren().forEach(env => {
             if (env.getBounds().right < 0) {
-                env.x = this.game.config.width + 30;
+                env.x = this.game.config.width;
             }
         })
 

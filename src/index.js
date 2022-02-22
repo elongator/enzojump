@@ -15,6 +15,12 @@ const config = {
             debug: false
         }
     },
+    scale: {
+        parent: 'game',
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1000,
+        height: 340
+    },
     scene: [PreloadScene, PlayScene]
 };
 
