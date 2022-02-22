@@ -183,7 +183,7 @@ class PlayScene extends Phaser.Scene {
                 this.isGameRunning = true;
                 this.gameOverScreen.setAlpha(0);
                 this.anims.resumeAll();
-            } else return;
+            }
         })
 
         this.input.on('pointerdown', () => {
