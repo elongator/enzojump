@@ -261,7 +261,7 @@ class PlayScene extends Phaser.Scene {
 
         this.environment.getChildren().forEach(env => {
             if (env.getBounds().right < 0) {
-                env.x = this.game.config.width;
+                env.x = this.game.config.width + 30;
             }
         })
 
