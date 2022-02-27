@@ -7,21 +7,19 @@ const config = {
     type: Phaser.AUTO,
     pixelArt: true,
     transparent: true,
-    width: 1000,
-    height: 340,
     physics: {
         default: 'arcade',
         arcade: {
             debug: true
         }
     },
-    // scale: {
-    //     parent: 'game',
-    //     autoCenter: Phaser.Scale.CENTER_BOTH,
-    //     mode: Phaser.Scale.FIT,
-    //     width: 1000,
-    //     height: 340
-    // },
+    scale: {
+        parent: 'game',
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        mode: Phaser.Scale.FIT,
+        width: 1000,
+        height: 340
+    },
     scene: [PreloadScene, PlayScene]
 };
 
