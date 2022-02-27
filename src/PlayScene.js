@@ -2,14 +2,13 @@ import Phaser from 'phaser';
 
 class PlayScene extends Phaser.Scene {
 
-
     constructor() {
         super('PlayScene');
     }
 
     create() {
         const { height, width } = this.game.config;
-        this.gameSpeed = 5;
+        this.gameSpeed = 10;
         this.isGameRunning = false;
         this.respawnTime = 0;
         this.score = 0;
@@ -100,7 +99,7 @@ class PlayScene extends Phaser.Scene {
                     this.dino.play('dino-run', 1);
 
                     if (this.ground.width < width) {
-                        this.ground.width += width;
+                        this.ground.width += 17 * 2;
                     }
 
                     if (this.ground.width >= 1000) {
@@ -174,26 +173,14 @@ class PlayScene extends Phaser.Scene {
 
     handleInputs() {
         this.restart.on('pointerdown', () => {
-            if (!this.isGameRunning) {
-                this.dino.setVelocityY(0);
-                this.dino.body.height = 92;
-                this.dino.body.offset.y = 0;
-                this.physics.resume();
-                this.obsticles.clear(true, true);
-                this.isGameRunning = true;
-                this.gameOverScreen.setAlpha(0);
-                this.anims.resumeAll();
-            }
-        })
-
-        this.input.on('pointerdown', () => {
-            if (!this.dino.body.onFloor() || this.dino.body.velocity.x > 0) { return; }
-
-            this.jumpSound.play();
+            this.dino.setVelocityY(0);
             this.dino.body.height = 92;
             this.dino.body.offset.y = 0;
-            this.dino.setVelocityY(-1600);
-            this.dino.setTexture('dino', 0);
+            this.physics.resume();
+            this.obsticles.clear(true, true);
+            this.isGameRunning = true;
+            this.gameOverScreen.setAlpha(0);
+            this.anims.resumeAll();
         })
 
         this.input.keyboard.on('keydown_SPACE', () => {
